@@ -210,16 +210,33 @@ var gameState = {
   id: null
 };
 
-var yellowSq = '<div id="%data1%" class="sq-yellow"><p>%data2%</p></div>';
-var yesNoBtns = '<button id="Yes" class="circle-right">Yes</button><br><button id="No" class="circle-left">No</button>';
-var bBox = '<button id="%data3%" class="%data2%">%data%</button>';
+var container = '<div id="%data1%" class="%data3%"><p>%data2%</p></div>';
+var button = '<button id="%data1%" class="btn btn-info button-group">%data2%</button>';
+var ynButton = '<div class="yn-group"><button id="yes" class="btn btn-info">Yes</button><button id="no" class="btn btn-info">No</button></div>';
+for (x in flowChart) {
+  for (y in flowChart[x]){
+    console.log(flowChart[x][y].text);
+    if (x === 'q'){
+      var formatedContainer = container.replace('%data2%', flowChart[x][y].text);
+      var formatedContainer = formatedContainer.replace('%data1%', flowChart[x][y].id);
+      var formatedContainer = formatedContainer.replace('%data3%', "sq-yellow");
+      $("#main").append(formatedContainer);
+    } else if (x === 'b'){
+      /*var formatedContainer = container.replace('%data2%', flowChart[x][y].text);
+      var formatedContainer = formatedContainer.replace('%data1%', flowChart[x][y].id);
+      var formatedContainer = formatedContainer.replace('%data3%', "sq-purple");
+      $("#main").append(formatedContainer); */
+      formattedButton = button.replace('%data2%', flowChart[x][y].text);
+      formattedButton = formattedButton.replace('%data1%', flowChart[x][y].id);
+      $(".buttons").append(formattedButton);
+    } else {
+      var formatedContainer = container.replace('%data2%', flowChart[x][y].text);
+      var formatedContainer = formatedContainer.replace('%data1%', flowChart[x][y].id);
+      var formatedContainer = formatedContainer.replace('%data3%', "sq-pink");
+      $("#main").append(formatedContainer);
+      }
+    }
+  }
+$(".buttons").append(ynButton);
 
-var initYellowSq = yellowSq.replace('%data2%', flowChart.q[0].text);
-var initYellowSq = initYellowSq.replace('%data1%', flowChart.q[0].id);
 gameState.id = flowChart.q[0].id;
-
-$("#main").append(initYellowSq);
-
-if (flowChart.q[0].YNbtn){
-  $(".sq-yellow").append(yesNoBtns);
-}
