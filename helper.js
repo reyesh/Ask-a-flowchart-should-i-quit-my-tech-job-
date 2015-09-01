@@ -80,15 +80,13 @@ var flowChart = {
       "id": "q11",
       "text": "Gross, get out.",
       "YNbtn": false,
-      "opt1": "q0",
-      "opt2": "q5"
+      "opt1": "e3"
     },
     {
       "id": "q12",
       "text": "Exactly.",
       "YNbtn": false,
-      "opt1": "q0",
-      "opt2": "q5"
+      "opt1": "e3"
     },
     {
       "id": "q13",
@@ -115,15 +113,13 @@ var flowChart = {
       "id": "q16",
       "text": "Score! Stay till you get a hoodie (or a tesla).",
       "YNbtn": false,
-      "opt1": "q0",
-      "opt2": "q5"
+      "opt1": "e7",
     },
     {
       "id": "q17",
       "text": "But what are you supposed to wear tomorrow?",
       "YNbtn": false,
-      "opt1": "q0",
-      "opt2": "q5"
+      "opt1": "e3",
     }
   ],
 // b are the responses given to certain questions
@@ -131,42 +127,50 @@ var flowChart = {
     {
       "id": "b0",
       "text": "Well, not all dudes",
-      "group": "q4"
+      "group": "q4",
+      "opt1": "q8"
     },
     {
       "id": "b1",
       "text": "Uh, Yeah, I said \"Tech Job.\"",
-      "group": "q4"
+      "group": "q4",
+      "opt1": "e1"
     },
     {
       "id": "b2",
       "text": "Every Morning.",
-      "group": "q8"
+      "group": "q8",
+      "opt1": "q11"
     },
     {
       "id": "b3",
       "text": "But I love Silicon prairie/alley/gulch/cesspool!",
-      "group": "q6"
+      "group": "q6",
+      "opt1": "q9"
     },
     {
       "id": "b4",
       "text": "No. Thank God.",
-      "group": "q8"
+      "group": "q8",
+      "opt1": "q14"
     },
     {
       "id": "b5",
       "text": "Boxes",
-      "group": "q14"
+      "group": "q14",
+      "opt1": "q16"
     },
     {
       "id": "b6",
       "text": "Just one.",
-      "group": "q14"
+      "group": "q14",
+      "opt1": "q17"
     },
     {
       "id": "b7",
       "text": "That's silicon valley.",
-      "group": "q9"
+      "group": "q9",
+      "opt1": "q12"
     }
   ],
 // e are the possible anwsers to the question "should i quit my tech job?"

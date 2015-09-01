@@ -1,3 +1,6 @@
+var checkDiv = function (type, num){
+
+}
 var main = function() {
   // display the first question
   $('#q0').toggle();
@@ -33,18 +36,40 @@ var main = function() {
           $('.yn-group').toggle();
 
         }
-      }
 
-      var type = nextQ.substr(0,1);
-      var num = nextQ.substr(1)
+        var type = nextQ.substr(0,1);
+        var num = nextQ.substr(1)
 
-      if (flowChart[type][num].YNbtn){
-        $('.yn-group').toggle();
-      //s  $('#'+flowChart[type][num].opt1).toggle();
+        if (flowChart[type][num].YNbtn){
+          $('.yn-group').toggle();
+        //s  $('#'+flowChart[type][num].opt1).toggle();
+        } else {
+          console.log(flowChart[type][num].id);
+          $('.'+flowChart[type][num].id).toggle();
+        }
+
       } else {
-        console.log(flowChart[type][num].id);
-        $('.'+flowChart[type][num].id).toggle();
+        // if the q doesnt have yes & no buttons
+
+        //alert(what);
+        var bLet = what.substr(0,1);
+        var bNum = what.substr(1)
+        $('#'+gameState.id).toggle();
+        $('#'+flowChart[bLet][bNum].opt1).toggle();
+
+        if (flowChart[bLet][bNum].YNbtn){
+          $('.yn-group').toggle();
+        //s  $('#'+flowChart[type][num].opt1).toggle();
+        } else {
+          console.log(flowChart[bLet][bNum].id);
+          $('.'+flowChart[bLet][bNum].opt1).toggle();
+          $('.'+flowChart[bLet][bNum].group).toggle();
+
+        }
+
       }
+
+
     }
 
   })
