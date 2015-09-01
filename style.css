@@ -10,7 +10,6 @@ h1 {
 }
 
 /* Basic styling */
-
 .jumbotron {
   margin-left: auto;
   margin-right: auto;
@@ -25,6 +24,26 @@ h1 {
   display: none;
 }
 
+.q4{
+  display: none;
+}
+
+.q8{
+  display: none;
+}
+
+.q6{
+  display: none;
+}
+
+.q14{
+  display: none;
+}
+
+.q9{
+  display: none;
+}
+
 .sq-yellow {
   background-color: #fff;
   border: 1px solid #d8d8d8;
@@ -35,7 +54,7 @@ h1 {
   margin-bottom: 10px;
   word-wrap: break-word;
   min-height: 42px;
-  width: 200px;
+  width: 400px;
   display: none;
 }
 
@@ -49,6 +68,6 @@ h1 {
   margin-bottom: 10px;
   word-wrap: break-word;
   min-height: 42px;
-  width: 200px;
+  width: 400px;
   display: none;
 }

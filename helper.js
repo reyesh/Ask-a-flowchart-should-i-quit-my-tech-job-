@@ -5,29 +5,29 @@ var flowChart = {
       "id": "q0",
       "text": "Has it IPO\'d?",
       "YNbtn": true,
-      "Yes": "q1",
-      "No": "q2"
+      "opt1": "q1",
+      "opt2": "q2"
     },
     {
       "id": "q1",
       "text": "Is there free food?",
       "YNbtn": true,
-      "Yes": "q3",
-      "No": "e0"
+      "opt1": "q3",
+      "opt2": "e0"
     },
     {
       "id": "q2",
       "text": "Is it in the Bay Area?",
       "YNbtn": true,
-      "Yes": "q4",
-      "No": "q6"
+      "opt1": "q4",
+      "opt2": "q6"
     },
     {
       "id": "q3",
       "text": "even tacos?",
       "YNbtn": true,
-      "Yes": "q5",
-      "No": "e0"
+      "opt1": "q5",
+      "opt2": "e0"
     },
     {
       "id": "q4",
@@ -40,8 +40,8 @@ var flowChart = {
       "id": "q5",
       "text": "Do you have standing desks?",
       "YNbtn": true,
-      "Yes": "q7",
-      "No": "e0"
+      "opt1": "q7",
+      "opt2": "e0"
     },
     {
       "id": "q6",
@@ -53,8 +53,8 @@ var flowChart = {
       "id": "q7",
       "text": "treadmill desks?",
       "YNbtn": true,
-      "Yes": "q10",
-      "No": "e2"
+      "opt1": "q10",
+      "opt2": "e2"
     },
     {
       "id": "q8",
@@ -73,92 +73,100 @@ var flowChart = {
       "id": "q10",
       "text": "Free Beer?",
       "YNbtn": true,
-      "Yes": "q13",
-      "No": "e2"
+      "opt1": "q13",
+      "opt2": "e2"
     },
     {
       "id": "q11",
       "text": "Gross, get out.",
       "YNbtn": false,
-      "Yes": "q0",
-      "No": "q5"
+      "opt1": "q0",
+      "opt2": "q5"
     },
     {
       "id": "q12",
       "text": "Exactly.",
       "YNbtn": false,
-      "Yes": "q0",
-      "No": "q5"
+      "opt1": "q0",
+      "opt2": "q5"
     },
     {
       "id": "q13",
       "text": "Free Medical Marijuana?",
       "YNbtn": true,
-      "Yes": "q15",
-      "No": "e5"
+      "opt1": "q15",
+      "opt2": "e5"
     },
     {
       "id": "q14",
       "text": "How many free t-shirts did you get?",
       "YNbtn": false,
-      "Yes": "q0",
-      "No": "q5"
+      "opt1": "q0",
+      "opt2": "q5"
     },
     {
       "id": "q15",
       "text": "Are they hiring?",
       "YNbtn": true,
-      "Yes": "e6",
-      "No": "e4"
+      "opt1": "e6",
+      "opt2": "e4"
     },
     {
       "id": "q16",
       "text": "Score! Stay till you get a hoodie (or a tesla).",
       "YNbtn": false,
-      "Yes": "q0",
-      "No": "q5"
+      "opt1": "q0",
+      "opt2": "q5"
     },
     {
       "id": "q17",
       "text": "But what are you supposed to wear tomorrow?",
       "YNbtn": false,
-      "Yes": "q0",
-      "No": "q5"
+      "opt1": "q0",
+      "opt2": "q5"
     }
   ],
 // b are the responses given to certain questions
   "b" : [
     {
       "id": "b0",
-      "text": "Well, not all dudes"
+      "text": "Well, not all dudes",
+      "group": "q4"
     },
     {
       "id": "b1",
-      "text": "Uh, Yeah, I said \"Tech Job.\""
+      "text": "Uh, Yeah, I said \"Tech Job.\"",
+      "group": "q4"
     },
     {
       "id": "b2",
-      "text": "Every Morning."
+      "text": "Every Morning.",
+      "group": "q8"
     },
     {
       "id": "b3",
-      "text": "But I love Silicon prairie/alley/gulch/cesspool!"
+      "text": "But I love Silicon prairie/alley/gulch/cesspool!",
+      "group": "q6"
     },
     {
       "id": "b4",
-      "text": "No. Thank God."
+      "text": "No. Thank God.",
+      "group": "q8"
     },
     {
       "id": "b5",
-      "text": "Boxes"
+      "text": "Boxes",
+      "group": "q14"
     },
     {
       "id": "b6",
-      "text": "Just one."
+      "text": "Just one.",
+      "group": "q14"
     },
     {
       "id": "b7",
-      "text": "That's silicon valley."
+      "text": "That's silicon valley.",
+      "group": "q9"
     }
   ],
 // e are the possible anwsers to the question "should i quit my tech job?"
@@ -222,13 +230,14 @@ for (x in flowChart) {
       var formatedContainer = formatedContainer.replace('%data3%', "sq-yellow");
       $("#main").append(formatedContainer);
     } else if (x === 'b'){
-      /*var formatedContainer = container.replace('%data2%', flowChart[x][y].text);
-      var formatedContainer = formatedContainer.replace('%data1%', flowChart[x][y].id);
-      var formatedContainer = formatedContainer.replace('%data3%', "sq-purple");
-      $("#main").append(formatedContainer); */
+
       formattedButton = button.replace('%data2%', flowChart[x][y].text);
       formattedButton = formattedButton.replace('%data1%', flowChart[x][y].id);
       $(".buttons").append(formattedButton);
+
+      if (flowChart[x][y].group){
+        $("#"+flowChart[x][y].id).addClass(flowChart[x][y].group);
+      }
     } else {
       var formatedContainer = container.replace('%data2%', flowChart[x][y].text);
       var formatedContainer = formatedContainer.replace('%data1%', flowChart[x][y].id);
@@ -237,6 +246,6 @@ for (x in flowChart) {
       }
     }
   }
-$(".buttons").append(ynButton);
 
+$(".buttons").append(ynButton);
 gameState.id = flowChart.q[0].id;
