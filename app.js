@@ -43,16 +43,28 @@ var main = function() {
     console.log("start id: "+gameState.id);
 
     if (flowChart[gameState.let()][gameState.num()].type === 1){
+      // type 1 statements are those that require yes or no responses
+      // gets the button id of the button pressed
       var what = $(this).prop('id');
+
       if (what === "yes"){
+        // shows the yes statement
         $('#'+flowChart[gameState.let()][gameState.num()].opt1).toggle();
+        // hides the current message
         $('#'+gameState.id).toggle();
+        // updates the current gameState.id
         gameState.id = flowChart[gameState.let()][gameState.num()].opt1;
+        // displays buttons according to the new statement/message on screen.
         displayButtons(gameState.id);
+
       } else {
+        // show the no statement
         $('#'+flowChart[gameState.let()][gameState.num()].opt2).toggle();
+        // hides the current statement
         $('#'+gameState.id).toggle();
+        // update the current gameState.id
         gameState.id = flowChart[gameState.let()][gameState.num()].opt2;
+        // displays buttons according to the new statement/message on screen.
         displayButtons(gameState.id);
       }
     } else if (flowChart[gameState.let()][gameState.num()].type === 2){
@@ -77,23 +89,38 @@ var main = function() {
       }
 
     } else if (flowChart[gameState.let()][gameState.num()].type === 3){
+
+      //gets the id of the button pressed
       var what = $(this).prop('id');
+      console.log("type 3: "+what);
+      //breaks down the letter and number part of the button id, this is used to locate the json object
       bLetter = what.substr(0,1);
       bNumber = what.substr(1);
-      console.log("type 3: "+gameState.id+" .opt1: "+flowChart[bLetter][bNumber].opt1);
+      // hides the current statement
       $('#'+gameState.id).toggle();
+      // shows the new statement, from the button json object
       $('#'+flowChart[bLetter][bNumber].opt1).toggle();
+      // changes the gameState ID to the next statement
       gameState.id = flowChart[bLetter][bNumber].opt1;
-      console.log("type 3: "+gameState.id);
+      //the displayButtons function determines what buttons need to be displayed for the type of statement that is displayed
       displayButtons(gameState.id);
+
     } else {
-      
+
       //this else statement is for q statement who's only outcome is the final verdict, which have a type of 4
 
       //get the current message and hide it
       $('#'+flowChart[gameState.let()][gameState.num()].id).toggle();
       //get the verdict and final anwser
       $('#'+flowChart[gameState.let()][gameState.num()].opt1).toggle();
+      gameState.id = flowChart[gameState.let()][gameState.num()].opt1;
+    }
+
+    // disabled any button on final verdict
+    console.log("end of click: "+gameState.let());
+    if (gameState.let() === 'e'){
+      console.log("end of game");
+      $('.button-group').prop('disabled', true);
     }
 
   })
