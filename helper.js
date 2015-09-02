@@ -4,121 +4,121 @@ var flowChart = {
     {
       "id": "q0",
       "text": "Has it IPO\'d?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q1",
       "opt2": "q2"
     },
     {
       "id": "q1",
       "text": "Is there free food?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q3",
       "opt2": "e0"
     },
     {
       "id": "q2",
       "text": "Is it in the Bay Area?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q4",
       "opt2": "q6"
     },
     {
       "id": "q3",
       "text": "even tacos?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q5",
       "opt2": "e0"
     },
     {
       "id": "q4",
       "text": "Is it all dudes?",
-      "YNbtn": false,
+      "type": 2,
       "opt1": "b0",
       "opt2": "b1"
     },
     {
       "id": "q5",
       "text": "Do you have standing desks?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q7",
       "opt2": "e0"
     },
     {
       "id": "q6",
       "text": "You'll never get a good exit",
-      "YNbtn": false,
+      "type": 3,
       "opt1": "b3"
     },
     {
       "id": "q7",
-      "text": "treadmill desks?",
-      "YNbtn": true,
+      "text": "Treadmill desks?",
+      "type": 1,
       "opt1": "q10",
       "opt2": "e2"
     },
     {
       "id": "q8",
       "text": "Is \"Moon Shots\" a topic of discussion?",
-      "YNbtn": false,
+      "type": 2,
       "opt1": "b2",
       "opt2": "b4"
     },
     {
       "id": "q9",
       "text": "Oh, like the HBO show!",
-      "YNbtn": false,
+      "type": 3,
       "opt1": "q12",
     },
     {
       "id": "q10",
       "text": "Free Beer?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q13",
       "opt2": "e2"
     },
     {
       "id": "q11",
       "text": "Gross, get out.",
-      "YNbtn": false,
+      "type": 4,
       "opt1": "e3"
     },
     {
       "id": "q12",
       "text": "Exactly.",
-      "YNbtn": false,
+      "type": 4,
       "opt1": "e3"
     },
     {
       "id": "q13",
       "text": "Free Medical Marijuana?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "q15",
       "opt2": "e5"
     },
     {
       "id": "q14",
       "text": "How many free t-shirts did you get?",
-      "YNbtn": false,
-      "opt1": "q0",
-      "opt2": "q5"
+      "type": 2,
+      "opt1": "b5",
+      "opt2": "b6"
     },
     {
       "id": "q15",
       "text": "Are they hiring?",
-      "YNbtn": true,
+      "type": 1,
       "opt1": "e6",
       "opt2": "e4"
     },
     {
       "id": "q16",
       "text": "Score! Stay till you get a hoodie (or a tesla).",
-      "YNbtn": false,
+      "type": 4,
       "opt1": "e7",
     },
     {
       "id": "q17",
       "text": "But what are you supposed to wear tomorrow?",
-      "YNbtn": false,
+      "type": 4,
       "opt1": "e3",
     }
   ],
@@ -218,12 +218,22 @@ var flowChart = {
   ]
 };
 
-var gameState = {
-  id: null
-};
+var GameStateInit = function (){
+  var obj = { id: null };
+  obj.let = function (){
+    return obj.id.substr(0,1);
+  };
+  obj.num = function (){
+    return obj.id.substr(1);
+  }
+  return obj;
+}
 
-var container = '<div id="%data1%" class="%data3%"><p>%data2%</p></div>';
+var gameState = GameStateInit();
+
+var container = '<div id="%data1%" class="%data3%" aria-live=”assertive”><p>%data2%</p></div>';
 var button = '<button id="%data1%" class="btn btn-info button-group">%data2%</button>';
+var verdict = '<button id="v1" class="btn btn-info button-group verdict">verdict</button>';
 var ynButton = '<div class="yn-group"><button id="yes" class="btn btn-info">Yes</button><button id="no" class="btn btn-info">No</button></div>';
 for (x in flowChart) {
   for (y in flowChart[x]){
@@ -252,4 +262,5 @@ for (x in flowChart) {
   }
 
 $(".buttons").append(ynButton);
+$(".buttons").append(verdict);
 gameState.id = flowChart.q[0].id;
