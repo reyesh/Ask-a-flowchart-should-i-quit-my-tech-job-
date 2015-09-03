@@ -3,6 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #404040;
   background-color: #eee;
+  padding-bottom: 70px;
 }
 
 h1 {
@@ -10,10 +11,16 @@ h1 {
 }
 
 /* Basic styling */
-.jumbotron {
+
+
+.footer {
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: 100px;
+}
+
+.navbar {
+    min-height: 0px;
 }
 
 #yes {
@@ -84,6 +91,22 @@ h1 {
   margin-bottom: 10px;
   word-wrap: break-word;
   min-height: 42px;
-  width: 400px;
+  width: 100%;
   display: none;
+}
+
+@media (max-width: 400px) {
+  .jumbotron {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 401px) {
+
+  .jumbotron {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+  }
 }

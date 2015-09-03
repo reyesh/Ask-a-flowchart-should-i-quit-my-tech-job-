@@ -2,25 +2,52 @@
 <html lang="en">
   <head>
     <title>Should you quit your tech job? Answer a few questions to find out.</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- build:css inline production/bootstrap.min.css -->
     <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- /build -->
+    <!-- build:css inline production/style.min.css -->
     <link href='style.css' rel='stylesheet'>
+    <!-- /build -->
   </head>
   <body unresolved>
 
     <!-- Main body -->
-<div class="jumbotron">
-      <h1>Ask a Flowchart</h1>
-      <h2>Should I quit my tech job?</h2>
-      <p>by Robert Capps</p>
-      <div id="main" class=""></div>
-      <div class="buttons pull-right"></div>
-</div>
-<div class="container">
-
-</div>
+    <div class="jumbotron">
+          <h1 class="well well-sm">Ask a Flowchart</h1>
+          <h2>Should I quit my tech job?</h2>
+          <p>by <a href="https://twitter.com/robcapps">Robert Capps <i class="fa fa-twitter"></i></a></p>
+          <div id="main" class="" aria-live="polite"></div>
+          <div class="buttons pull-right"></div>
+    </div>
+    <!-- footer -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="footer">
+          <a href="https://twitter.com/reyesh"><i class="fa fa-twitter-square"></i> reyesh</a>
+        </div>
+      </div>
+    </nav>
+    <!-- build:js inline production/jquery-1.11.0.min.js -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- /build -->
+    <!-- build:js inline production/helper.js -->
     <script src="helper.js"></script>
+    <!-- /build -->
+    <!-- build:js inline production/app.js -->
     <script src="app.js"></script>
+    <!-- /build -->
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
   </body>
 </html>
