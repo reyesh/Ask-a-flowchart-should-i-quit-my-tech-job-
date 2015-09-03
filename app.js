@@ -33,11 +33,22 @@ var main = function() {
   }
 
   // display the first question
-  $('#q0').toggle();
+  $('#q0').show();
 
   // diplay the yes & no buttons
   //$('.yn-group').toggle();
   displayButtons("q0");
+
+  $('#refresh').hide();
+  console.log(gameState.id);
+
+  // when the flowchart ends it ask to restart, and a restart button appears, it is
+  // important that this function appears before the function with the game logic
+  // becuase it will pick up the restart button press, and run the game logic.
+  $('#refresh').click(function() {
+      console.log("in refresh: "+gameState.id);
+      location.reload();
+  });
 
   $('button').click(function(){
     console.log("start id: "+gameState.id);
@@ -117,13 +128,20 @@ var main = function() {
     }
 
     // disabled any button on final verdict
-    console.log("end of click: "+gameState.let());
+    console.log("end of click: "+gameState.id);
+    console.log("here :"+gameState.id);
     if (gameState.let() === 'e'){
       console.log("end of game");
-      $('.button-group').prop('disabled', true);
+      //$('.button-group, .yesno').prop('disabled', true);
+      //$('.button-group').prop('disabled', true);
+      $('.button-group, .yesno').hide();
+
+      $('#refresh').show();
+
     }
 
-  })
+  });
+
 }; // end of main function
 
 $(document).ready(main);

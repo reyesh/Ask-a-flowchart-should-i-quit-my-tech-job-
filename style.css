@@ -12,6 +12,9 @@ h1 {
 
 /* Basic styling */
 
+.jumbotron {
+  padding: 30px;
+}
 
 .footer {
   margin-left: auto;
@@ -29,10 +32,20 @@ h1 {
 
 #b0 {
   margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+#b1 {
+  margin-bottom: 10px;
 }
 
 #b2 {
   margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+#b4 {
+  margin-bottom: 10px;
 }
 
 #b5 {

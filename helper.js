@@ -234,7 +234,9 @@ var gameState = GameStateInit();
 var container = '<div id="%data1%" class="%data3%"><p>%data2%</p></div>';
 var button = '<button id="%data1%" class="btn btn-primary button-group">%data2%</button>';
 var verdict = '<button id="v1" class="btn btn-primary button-group verdict">Verdict</button>';
-var ynButton = '<div class="yn-group"><button id="yes" class="btn btn-primary">Yes</button><button id="no" class="btn btn-primary">No</button></div>';
+var ynButton = '<div class="yn-group"><button id="yes" class="btn btn-primary yesno">Yes</button><button id="no" class="btn btn-primary yesno">No</button></div>';
+var refresh = '<button id="refresh" class="btn btn-danger">Restart</button>';
+
 for (x in flowChart) {
   for (y in flowChart[x]){
     console.log(flowChart[x][y].text);
@@ -263,4 +265,5 @@ for (x in flowChart) {
 
 $(".buttons").append(ynButton);
 $(".buttons").append(verdict);
+$(".buttons").append(refresh);
 gameState.id = flowChart.q[0].id;
