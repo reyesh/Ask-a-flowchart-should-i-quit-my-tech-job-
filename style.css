@@ -19,7 +19,12 @@ h1 {
 .footer {
   margin-left: auto;
   margin-right: auto;
-  width: 100px;
+  text-align: center;
+  height: 20px;
+}
+
+.social-btn {
+  vertical-align: top;
 }
 
 .navbar {
@@ -108,18 +113,36 @@ h1 {
   display: none;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 412px) {
   .jumbotron {
     margin-left: auto;
     margin-right: auto;
   }
+  .footer {
+    width: 375px;
+  }
+  .social-btn {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .list-inline {
+    width: 325px;
+  }
+
 }
 
-@media (min-width: 401px) {
+@media (min-width: 413px) {
 
   .jumbotron {
     margin-left: auto;
     margin-right: auto;
     width: 500px;
+  }
+  .footer {
+    width: 425px;
+  }
+  .social-btn {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }

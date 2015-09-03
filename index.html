@@ -13,6 +13,15 @@
   </head>
   <body unresolved>
 
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- Main body -->
     <div class="jumbotron">
           <h1 class="well well-sm">Ask a Flowchart</h1>
@@ -23,13 +32,21 @@
     </div>
     <!-- footer -->
     <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
         <div class="footer">
-          <a href="https://twitter.com/reyesh"><i class="fa fa-twitter-square"></i> reyesh</a>
+          <ul class="list-inline">
+            <li class="social-btn">
+              <a href="https://twitter.com/reyesh"><i class="fa fa-twitter-square"></i> reyesh</a>
+            </li>
+            <li class="social-btn">
+              <div class="fb-share-button" data-href="http://reye.sh/f1/" data-layout="button_count"></div>
+            </li>
+            <li class="social-btn">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://reye.sh/f1" data-text="Ask a flowchart, should I quit my tech job?">Tweet</a>
+            </li>
+          </ul>
         </div>
-      </div>
     </nav>
-    <!-- build:js inline production/jquery-1.11.0.min.js -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    <!-- build:js inline production/jquery-1.11.0.min.js -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <!-- /build -->
     <!-- build:js inline production/helper.js -->
