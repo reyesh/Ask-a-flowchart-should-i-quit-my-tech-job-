@@ -30,7 +30,7 @@ var main = function() {
       $('.verdict').show();
 
     }
-  }
+  };
 
   // display the first question
   $('#q0').show();
@@ -53,10 +53,11 @@ var main = function() {
   $('button').click(function(){
     console.log("start id: "+gameState.id);
 
+    // gets the button id of the button pressed
+    var what = $(this).prop('id');
+
     if (flowChart[gameState.let()][gameState.num()].type === 1){
       // type 1 statements are those that require yes or no responses
-      // gets the button id of the button pressed
-      var what = $(this).prop('id');
 
       if (what === "yes"){
         // shows the yes statement
@@ -80,7 +81,7 @@ var main = function() {
       }
     } else if (flowChart[gameState.let()][gameState.num()].type === 2){
 
-      var what = $(this).prop('id');
+      what = $(this).prop('id');
       bLetter = what.substr(0,1);
       bNumber = what.substr(1);
       if (what === 'b0'){ // button one
@@ -102,7 +103,7 @@ var main = function() {
     } else if (flowChart[gameState.let()][gameState.num()].type === 3){
 
       //gets the id of the button pressed
-      var what = $(this).prop('id');
+      what = $(this).prop('id');
       console.log("type 3: "+what);
       //breaks down the letter and number part of the button id, this is used to locate the json object
       bLetter = what.substr(0,1);
