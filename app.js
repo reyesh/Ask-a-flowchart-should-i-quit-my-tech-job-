@@ -1,6 +1,6 @@
 
 var main = function() {
-
+var counter = 0;
   var displayButtons = function (optN){
 
     console.log("hello: " + optN);
@@ -9,12 +9,13 @@ var main = function() {
 
     if (flowChart[letter][number].type === 1){
 
-      $('.yn-group').show();
+      $('.yesno').show();
+      console.log("here");
 
     } else if (flowChart[letter][number].type === 2 ||
                   flowChart[letter][number].type === 3) {
 
-      $('.yn-group').hide();
+      $('.yesno').hide();
       $('.button-group').hide();
       $('.'+optN).show();
       console.log("2 3");
@@ -25,32 +26,44 @@ var main = function() {
       // hide the current buttons that are displayed
       $('.button-group').hide();
       // hide yes/no buttons if present
-      $('.yn-group').hide();
+      $('.yesno').hide();
       // show the verdict button, who's only outcome will be the final statement.
       $('.verdict').show();
 
     }
   };
 
-  // display the first question
-  $('#q0').show();
+  // when the user clicks on restart we want all variables and div states to reset
+  // instead of reloading the page
+  var resetApp = function (){
 
-  // diplay the yes & no buttons
-  //$('.yn-group').toggle();
-  displayButtons("q0");
+    gameState = GameStateInit();
 
-  $('#refresh').hide();
-  console.log(gameState.id);
+    // display the first question
+    $('#q0').show();
+
+    // diplay the yes & no buttons
+    //$('.yn-group').toggle();
+    //hide the restart button
+    $('#refresh').hide();
+    $('.sq-pink').hide();
+    displayButtons("q0");
+    console.log("ran resetApp function");
+  }
+
+  resetApp();
 
   // when the flowchart ends it ask to restart, and a restart button appears, it is
   // important that this function appears before the function with the game logic
   // becuase it will pick up the restart button press, and run the game logic.
   $('#refresh').click(function() {
-      console.log("in refresh: "+gameState.id);
-      location.reload();
+      counter=counter+1;
+      console.log("about to run resetApp()" +counter);
+    //  location.reload();
+      resetApp();
   });
 
-  $('button').click(function(){
+  $('.button-group').click(function(){
     console.log("start id: "+gameState.id);
 
     // gets the button id of the button pressed
