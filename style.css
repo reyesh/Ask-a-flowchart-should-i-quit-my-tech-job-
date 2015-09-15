@@ -35,30 +35,16 @@ h1 {
   margin-right: 20px;
 }
 
-#b0 {
-  margin-right: 20px;
-  margin-bottom: 10px;
-}
-
-#b1 {
-  margin-bottom: 10px;
-}
-
-#b2 {
-  margin-right: 20px;
-  margin-bottom: 10px;
-}
-
-#b4 {
-  margin-bottom: 10px;
-}
-
-#b5 {
+#b6 {
   margin-right: 20px;
 }
 
 .button-group {
   display: none;
+}
+
+.btn {
+  float: right!important;
 }
 
 .q4{
@@ -113,9 +99,17 @@ h1 {
   #b3{
     font-size: 13px;
   }
+  .jumbotron {
+    padding-top: 0px;
+  }
 }
-
-@media (max-width: 412px) {
+@media (min-width: 0px) and (max-width: 414px) {
+  #b4 {
+    margin-right: 0px;
+  }
+  #b2 {
+    margin-left: 20px;
+  }
   .jumbotron {
     margin-left: auto;
     margin-right: auto;
@@ -130,10 +124,16 @@ h1 {
   .list-inline {
     width: 325px;
   }
-
+  #b0 {
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+  #b2 {
+    margin-bottom: 10px;
+  }
 }
 
-@media (min-width: 413px) {
+@media (min-width: 415px) {
 
   .jumbotron {
     margin-left: auto;
@@ -146,5 +146,15 @@ h1 {
   .social-btn {
     margin-right: 20px;
     margin-left: 20px;
+  }
+  #b1 {
+    margin-right: 20px;
+  }
+  #b2 {
+    margin-bottom: 10px;
+  }
+  #b4 {
+    margin-right: 20px;
+    margin-bottom: 10px;
   }
 }

@@ -11,6 +11,10 @@ var counter = 0;
 
       $('.yesno').show();
       console.log("here");
+      //window.location.hash = '.buttons';
+      //document.getElementById('buttons').focus();
+
+
 
     } else if (flowChart[letter][number].type === 2 ||
                   flowChart[letter][number].type === 3) {
