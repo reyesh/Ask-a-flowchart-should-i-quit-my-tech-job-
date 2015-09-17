@@ -218,6 +218,8 @@ var flowChart = {
   ]
 };
 
+// this function returns an object that keeps track of the progress of the game.
+
 var GameStateInit = function (){
   var obj = { id: "q0" };
   obj.let = function (){
@@ -237,6 +239,10 @@ var verdict = '<button id="v1" class="btn btn-primary button-group verdict">Verd
 var ynButton = '<div class="yn-group"><button id="no" class="btn btn-primary yesno button-group">No</button><button id="yes" class="btn btn-primary yesno button-group">Yes</button></div>';
 var refresh = '<button id="refresh" class="btn btn-danger">Restart</button>';
 
+// the following for statement added all the necessary divs to the page
+// q are the questions or statements in regards to choice you make
+// b are your choices to certain questions.
+// e are the result to the question "should i quite my tech job?"
 for (var x in flowChart) {
   for (var y in flowChart[x]){
     console.log(flowChart[x][y].text);
@@ -266,5 +272,3 @@ for (var x in flowChart) {
 $(".buttons").append(ynButton);
 $(".buttons").append(verdict);
 $(".buttons").append(refresh);
-
-var gameState;

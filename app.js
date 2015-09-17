@@ -1,6 +1,8 @@
 
 var main = function() {
+
 var counter = 0;
+
   var displayButtons = function (optN){
 
     console.log("hello: " + optN);
@@ -46,8 +48,6 @@ var counter = 0;
     // display the first question
     $('#q0').show();
 
-    // diplay the yes & no buttons
-    //$('.yn-group').toggle();
     //hide the restart button
     $('#refresh').hide();
     $('.sq-pink').hide();
