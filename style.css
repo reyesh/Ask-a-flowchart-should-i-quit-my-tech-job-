@@ -67,7 +67,7 @@ h1 {
   display: none;
 }
 
-.sq-yellow {
+.question {
   background-color: #fff;
   border: 1px solid #d8d8d8;
   padding-top: 10px;
@@ -78,7 +78,6 @@ h1 {
   word-wrap: break-word;
   min-height: 42px;
   width: 100%;
-  display: none;
 }
 
 .sq-pink {
