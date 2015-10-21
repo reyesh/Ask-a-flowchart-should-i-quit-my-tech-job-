@@ -5,14 +5,14 @@ var Engine = (function(global){
 			return flowChart.currentState;
 		},
 		getContent: function(state){
-			var let = state.substr(0,1);
+			var abc = state.substr(0,1);
     		var num = state.substr(1);
-			return flowChart[let][num];
+			return flowChart[abc][num];
 		},
 		setState: function(state){
 			flowChart.currentState = state;
 		}
-	}
+	};
 
 	var view = {
 
@@ -48,6 +48,8 @@ var Engine = (function(global){
 		buttonRender: function(state){
 
     		var content = octopus.getContent(state);
+    		var res_btn;
+    		var content1;
 
 			if (content.type == 1) {
 				// type: 1, yes and no buttons 
@@ -73,8 +75,8 @@ var Engine = (function(global){
 
 			} else if (content.type == 2) {
 				//type: 2, two response buttons
-				var res_btn = document.createElement('button');
-				var content1 = octopus.getContent(content.opt1);
+				res_btn = document.createElement('button');
+				content1 = octopus.getContent(content.opt1);
 				res_btn.id = content1.id;				
 				res_btn.className = "btn btn-primary";
 				res_btn.innerHTML = content1.text;
@@ -99,8 +101,8 @@ var Engine = (function(global){
 
 			} else if (content.type == 3) {
 				//type: 3, one response button
-				var res_btn = document.createElement('button');
-				var content1 = octopus.getContent(content.opt1);
+				res_btn = document.createElement('button');
+				content1 = octopus.getContent(content.opt1);
 				res_btn.id = content1.id;
 				res_btn.className = "btn btn-primary";
 				res_btn.innerHTML = content1.text;
@@ -114,7 +116,7 @@ var Engine = (function(global){
 			} else if (content.type == 4){
 				// type: 4, verdict button
 				var ver_btn = document.createElement('button');
-				var content1 = octopus.getContent(content.opt1);
+				content1 = octopus.getContent(content.opt1);
 				console.log(content1);
 				ver_btn.className = "btn btn-primary btn-warning";
 				ver_btn.innerHTML = "Verdict";
@@ -138,7 +140,7 @@ var Engine = (function(global){
 		        })());				
 				document.getElementById("buttons").appendChild(reset_btn);			}
 		}
-	}
+	};
 	//Initiates the flow chart; starts with q0 from var flowChart
     view.renderEverything("q0");
 

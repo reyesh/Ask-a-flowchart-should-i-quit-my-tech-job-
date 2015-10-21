@@ -4,6 +4,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        jshint: {
+          files: {
+            src: ['model.js', 'app2.js']
+          }
+        },
+
         concat: {   
             dist: {
                 src: [
@@ -66,9 +72,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
   //grunt.loadNpmTasks('grunt-css-url-replace');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat','uglify','cssmin','processhtml']);
+    grunt.registerTask('default', ['jshint','concat','uglify','cssmin','processhtml']);
 
 };
