@@ -126,7 +126,7 @@ var Engine = (function(global){
 				document.getElementById("buttons").appendChild(ver_btn);				
 
 			} else {
-				// else it's the verdict being display and games needs to restart
+				// else it's the verdict being display and the game needs a button to restart
 				var reset_btn = document.createElement('button');
 				reset_btn.className = "btn btn-primary btn-danger";
 				reset_btn.innerHTML = "Reset";
