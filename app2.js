@@ -232,10 +232,6 @@ $(function() {
 
 	var view = {
 
-		init: function(){
-			view.mainRender(octopus.getState());
-			view.buttonRender(octopus.getState());
-		},
 		// Erases the main and buttons div
 		mainErase: function(){
             document.getElementById("main").innerHTML = "";	
@@ -245,7 +241,13 @@ $(function() {
 		mainRender: function(state){
     		var content = octopus.getContent(state);
 	        var mainDiv = document.createElement('p');
-	        mainDiv.className="question";
+
+	        if(content.id.substr(0,1) == "q"){
+	        	mainDiv.className="question";
+	        }else{
+	        	mainDiv.className="verdict";
+	        }
+
 	        mainDiv.innerHTML = content.text;
 	        document.getElementById("main").appendChild(mainDiv);
 		},
@@ -256,17 +258,13 @@ $(function() {
 			view.mainRender(octopus.getState());
 			view.buttonRender(octopus.getState());				
 		},
-		renderVerdict: function(state){
-			view.mainErase();
-			view.mainRender(octopus.getState());
-		},
 
 		buttonRender: function(state){
 
     		var content = octopus.getContent(state);
 
 			if (content.type == 1) {
-
+				// type: 1, yes and no buttons 
 				var no_btn = document.createElement('button');
 				no_btn.className = "btn btn-primary";
 				no_btn.innerHTML = "No";
@@ -278,7 +276,7 @@ $(function() {
 				document.getElementById("buttons").appendChild(no_btn);
 
 				var yes_btn = document.createElement('button');
-				yes_btn.className = "btn btn-primary";
+				yes_btn.className = "btn btn-primary yes";
 				yes_btn.innerHTML = "Yes";
 		        yes_btn.addEventListener('click', (function(state){
 		            return function(){
@@ -288,9 +286,10 @@ $(function() {
 				document.getElementById("buttons").appendChild(yes_btn);
 
 			} else if (content.type == 2) {
-
+				//type: 2, two response buttons
 				var res_btn = document.createElement('button');
 				var content1 = octopus.getContent(content.opt1);
+				res_btn.id = content1.id;				
 				res_btn.className = "btn btn-primary";
 				res_btn.innerHTML = content1.text;
 		        res_btn.addEventListener('click', (function(state){
@@ -302,6 +301,7 @@ $(function() {
 
 				var res1_btn = document.createElement('button');
 				var content2 = octopus.getContent(content.opt2);
+				res1_btn.id = content2.id;
 				res1_btn.className = "btn btn-primary";
 				res1_btn.innerHTML = content2.text;
 		        res1_btn.addEventListener('click', (function(state){
@@ -312,9 +312,10 @@ $(function() {
 				document.getElementById("buttons").appendChild(res1_btn);
 
 			} else if (content.type == 3) {
-
+				//type: 3, one response button
 				var res_btn = document.createElement('button');
 				var content1 = octopus.getContent(content.opt1);
+				res_btn.id = content1.id;
 				res_btn.className = "btn btn-primary";
 				res_btn.innerHTML = content1.text;
 		        res_btn.addEventListener('click', (function(state){
@@ -324,25 +325,35 @@ $(function() {
 		        })(content1.opt1));				
 				document.getElementById("buttons").appendChild(res_btn);
 
-			} else {
-
+			} else if (content.type == 4){
+				// type: 4, verdict button
 				var ver_btn = document.createElement('button');
 				var content1 = octopus.getContent(content.opt1);
 				console.log(content1);
-				ver_btn.className = "btn btn-primary";
+				ver_btn.className = "btn btn-primary btn-warning";
 				ver_btn.innerHTML = "Verdict";
 		        ver_btn.addEventListener('click', (function(state){
 		            return function(){
-		              console.log(state);
 		              view.renderEverything(state);
 			            };
 		        })(content1.id));				
 				document.getElementById("buttons").appendChild(ver_btn);				
 
-			}
+			} else {
+				// else it's the verdict being display and games needs to restart
+				var reset_btn = document.createElement('button');
+				reset_btn.className = "btn btn-primary btn-danger";
+				reset_btn.innerHTML = "Reset";
+		        reset_btn.addEventListener('click', (function(){
+		            return function(){
+		            	// resets the game
+		            	view.renderEverything("q0");
+			            };
+		        })());				
+				document.getElementById("buttons").appendChild(reset_btn);			}
 		}
 	}
-
-    view.init();
+	//Initiates the flow chart; starts with q0 from var flowChart
+    view.renderEverything("q0");
 
 }());
