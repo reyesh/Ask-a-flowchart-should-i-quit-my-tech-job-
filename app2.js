@@ -21,7 +21,7 @@ var Engine = (function(global){
             document.getElementById("main").innerHTML = "";	
             document.getElementById("buttons").innerHTML = "";			
 		},
-
+		// Render the main div
 		mainRender: function(state){
     		var content = octopus.getContent(state);
 	        var mainDiv = document.createElement('p');
@@ -37,14 +37,14 @@ var Engine = (function(global){
 	        mainDiv.innerHTML = content.text;
 	        document.getElementById("main").appendChild(mainDiv);
 		},
-
+		// During init or button press this function is called
 		renderEverything: function(state){
 			view.mainErase();
 			octopus.setState(state);
 			view.mainRender(octopus.getState());
 			view.buttonRender(octopus.getState());				
 		},
-
+		// This function determine which buttons need to render depending on currentState
 		buttonRender: function(state){
 
     		var content = octopus.getContent(state);
