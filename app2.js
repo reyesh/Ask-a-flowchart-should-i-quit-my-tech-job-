@@ -15,6 +15,12 @@ var Engine = (function(global){
 	};
 
 	var view = {
+		//Initiates the flow chart; starts with q0 from var flowChart
+		init: function(){
+   			//Set the h1 title in the jumbotron with the flowchart question we're trying to anwser
+			document.getElementsByClassName("jumbotron")[0]["children"][1].textContent = flowChart.questionTitle;
+    		view.renderEverything("q0");
+		},
 
 		// Erases the main and buttons div
 		mainErase: function(){
@@ -142,7 +148,8 @@ var Engine = (function(global){
 			}
 		}
 	};
-	//Initiates the flow chart; starts with q0 from var flowChart
-    view.renderEverything("q0");
+
+	//Initiates the flowchart.
+    view.init();    
 
 })(this);

@@ -15,7 +15,7 @@ In the first version of my web app we try to answer the question: **"Should I qu
 ### Understanding the flowchart and the different types of questions and responses
 
 1. Ask a question wanting a yes & no response  
-   <img alt="image showing yes and no buttons" src="/README-img/btn-yesno.png" width="500">
+<img alt="image showing yes and no buttons" src="/README-img/btn-yesno.png" width="500">
 
 2. Some questions require responses to choose from. It could be more or just one.
 <img alt="" src="/README-img/btn-responses.png" width="500">

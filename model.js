@@ -2,6 +2,7 @@
 // q are the questions used to determine if you should quit your tech job.
 // type: 1 are yes no questions, type 2: are responses you have to choose
 // type: 3 is a single respone. type: 4 is verdict button
+  questionTitle: "Should I quit my tech job?",
   currentState: "",
 
   q: [
