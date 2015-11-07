@@ -44,7 +44,7 @@ var Engine = (function(global){
 			view.mainRender(octopus.getState());
 			view.buttonRender(octopus.getState());				
 		},
-		// This function determine which buttons need to render depending on currentState
+		// This function determine which buttons need to render depending on currentState type
 		buttonRender: function(state){
 
     		var content = octopus.getContent(state);
@@ -138,7 +138,8 @@ var Engine = (function(global){
 		            	view.renderEverything("q0");
 			            };
 		        })());				
-				document.getElementById("buttons").appendChild(reset_btn);			}
+				document.getElementById("buttons").appendChild(reset_btn);			
+			}
 		}
 	};
 	//Initiates the flow chart; starts with q0 from var flowChart
