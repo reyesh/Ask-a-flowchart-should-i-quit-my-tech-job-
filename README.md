@@ -15,7 +15,7 @@ In the first version of my web app we try to answer the question: **"Should I qu
 ### Understanding the flowchart and the different types of questions and responses
 
 1. Ask a question wanting a yes & no response
- <img alt="image showing yes and no buttons" src="/README-img/btn-yesno.png" width="500">
+<img alt="image showing yes and no buttons" src="/README-img/btn-yesno.png" width="500">
 
 2. Some questions require responses to choose from. It could be more or just one.
 <img alt="" src="/README-img/btn-responses.png" width="500">
@@ -85,4 +85,7 @@ Required variables for `v` object:
   * `id`: this id must start with v followed by a number.
   * `text`: the final verdict to the question being ask.
 
+### Example: second flowchart web app
+[Ask a flowchart: What Should I Use the Crispr Gene-editing Tool to Build?](http://reye.sh/Ask-a-flowchart-What-Should-I-Use-the-Crispr-Gene-editing-Tool-to-Build-/)
 
+[Github repository](https://github.com/reyesh/Ask-a-flowchart-What-Should-I-Use-the-Crispr-Gene-editing-Tool-to-Build-)
