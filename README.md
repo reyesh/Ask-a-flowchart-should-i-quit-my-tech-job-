@@ -1,5 +1,5 @@
 # Simple scablable flowchart web app
-These project evolved from a spaghetti code monstrosity web app, to a simple scabable web app ( MV* ) that can be easily customize to answer any question in a flowchart manner.
+This project evolved from a spaghetti code monstrosity web app, to a simple scabable web app ( MV* ) that can be easily customize to answer any question in a flowchart manner.
 
 This project uses HTML, CSS, JavaScript, JSON, and Bootstrap. The current version has been refactor to separate the *Model*, *View* and *Controller/ViewModel* ( MV* ). *Controller/ViewModel* is called *Octopus* in my code. No organization JS library was used in this code, just plain vanilla JavaScript.
 
