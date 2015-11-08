@@ -3,8 +3,10 @@
 // type: 1 are yes no questions, type 2: are responses you have to choose
 // type: 3 is a single respone. type: 4 is verdict button
   questionTitle: "Should I quit my tech job?",
+  author: "Robert Capps",
+  authorTwitter: "robcapps",
   currentState: "",
-
+  
   q: [
    {
       id: "q0",
