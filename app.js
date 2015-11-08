@@ -18,7 +18,7 @@ var Engine = (function(global){
 		//Initiates the flow chart; starts with q0 from var flowChart
 		init: function(){
    			//Set the h1 title in the jumbotron with the flowchart question we're trying to anwser
-			document.getElementsByClassName("jumbotron")[0]["children"][1].textContent = flowChart.questionTitle;
+			document.getElementsByClassName("jumbotron")[0].children[1].textContent = flowChart.questionTitle;
     		view.renderEverything("q0");
 		},
 
@@ -57,26 +57,24 @@ var Engine = (function(global){
     		var res_btn;
     		var content1;
 
+			function makeClickHandler(state){
+	            return function(){
+	              view.renderEverything(state);
+	            };
+			}
+
 			if (content.type == 1) {
 				// type: 1, yes and no buttons 
 				var no_btn = document.createElement('button');
 				no_btn.className = "btn btn-primary";
 				no_btn.innerHTML = "No";
-		        no_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);
-		            };
-		        })(content.opt2));
+		        no_btn.addEventListener('click', makeClickHandler(content.opt2));
 				document.getElementById("buttons").appendChild(no_btn);
 
 				var yes_btn = document.createElement('button');
 				yes_btn.className = "btn btn-primary yes";
 				yes_btn.innerHTML = "Yes";
-		        yes_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);
-		            };
-		        })(content.opt1));				
+		        yes_btn.addEventListener('click', makeClickHandler(content.opt1));			
 				document.getElementById("buttons").appendChild(yes_btn);
 
 			} else if (content.type == 2) {
@@ -84,6 +82,7 @@ var Engine = (function(global){
 
 				//Iterates a q entry to see how many opts are available, for each one
 				//a button needs to be created.
+
 				for (var variable in content){
 					if (variable.substr(0,3) == "opt"){
 						res_btn = document.createElement('button');
@@ -91,11 +90,7 @@ var Engine = (function(global){
 						res_btn.id = content1.id;				
 						res_btn.className = "btn btn-primary";
 						res_btn.innerHTML = content1.text;
-				        res_btn.addEventListener('click', (function(state){
-				            return function(){
-				              view.renderEverything(state);
-				            };
-				        })(content1.opt1));				
+				        res_btn.addEventListener('click', makeClickHandler(content1.opt1));				
 						document.getElementById("buttons").appendChild(res_btn);
 					}
 				}
@@ -107,11 +102,7 @@ var Engine = (function(global){
 				console.log(content1);
 				ver_btn.className = "btn btn-primary btn-warning";
 				ver_btn.innerHTML = "Verdict";
-		        ver_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);
-			            };
-		        })(content1.id));				
+		        ver_btn.addEventListener('click', makeClickHandler(content1.id));				
 				document.getElementById("buttons").appendChild(ver_btn);				
 
 			} else {
@@ -119,12 +110,7 @@ var Engine = (function(global){
 				var reset_btn = document.createElement('button');
 				reset_btn.className = "btn btn-primary btn-danger";
 				reset_btn.innerHTML = "Reset";
-		        reset_btn.addEventListener('click', (function(){
-		            return function(){
-		            	// resets the game
-		            	view.renderEverything("q0");
-			            };
-		        })());				
+		        reset_btn.addEventListener('click', makeClickHandler("q0"));				
 				document.getElementById("buttons").appendChild(reset_btn);			
 			}
 		}

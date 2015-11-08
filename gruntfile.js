@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         jshint: {
           files: {
-            src: ['model.js', 'app2.js']
+            src: ['model.js', 'app.js']
           }
         },
 
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'model.js', // All JS in the libs folder
-                    'app2.js'  // This specific file
+                    'app.js'  // This specific file
                 ],
                 dest: 'production/app.concat.js',
             }
