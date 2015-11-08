@@ -80,46 +80,27 @@ var Engine = (function(global){
 				document.getElementById("buttons").appendChild(yes_btn);
 
 			} else if (content.type == 2) {
-				//type: 2, two response buttons
-				res_btn = document.createElement('button');
-				content1 = octopus.getContent(content.opt1);
-				res_btn.id = content1.id;				
-				res_btn.className = "btn btn-primary";
-				res_btn.innerHTML = content1.text;
-		        res_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);
-		            };
-		        })(content1.opt1));				
-				document.getElementById("buttons").appendChild(res_btn);	
+				//type: 2, response buttons
 
-				var res1_btn = document.createElement('button');
-				var content2 = octopus.getContent(content.opt2);
-				res1_btn.id = content2.id;
-				res1_btn.className = "btn btn-primary";
-				res1_btn.innerHTML = content2.text;
-		        res1_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);		            	
-		            };
-		        })(content2.opt1));				
-				document.getElementById("buttons").appendChild(res1_btn);
+				//Iterates a q entry to see how many opts are available, for each one
+				//a button needs to be created.
+				for (var variable in content){
+					if (variable.substr(0,3) == "opt"){
+						res_btn = document.createElement('button');
+						content1 = octopus.getContent(content[variable]);
+						res_btn.id = content1.id;				
+						res_btn.className = "btn btn-primary";
+						res_btn.innerHTML = content1.text;
+				        res_btn.addEventListener('click', (function(state){
+				            return function(){
+				              view.renderEverything(state);
+				            };
+				        })(content1.opt1));				
+						document.getElementById("buttons").appendChild(res_btn);
+					}
+				}
 
-			} else if (content.type == 3) {
-				//type: 3, one response button
-				res_btn = document.createElement('button');
-				content1 = octopus.getContent(content.opt1);
-				res_btn.id = content1.id;
-				res_btn.className = "btn btn-primary";
-				res_btn.innerHTML = content1.text;
-		        res_btn.addEventListener('click', (function(state){
-		            return function(){
-		              view.renderEverything(state);
-			            };
-		        })(content1.opt1));				
-				document.getElementById("buttons").appendChild(res_btn);
-
-			} else if (content.type == 4){
+			} else if (content.type == 3){
 				// type: 4, verdict button
 				var ver_btn = document.createElement('button');
 				content1 = octopus.getContent(content.opt1);

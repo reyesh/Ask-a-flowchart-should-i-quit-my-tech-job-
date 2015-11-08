@@ -51,7 +51,7 @@
     {
       id: "q6",
       text: "You'll never get a good exit",
-      type: 3,
+      type: 2,
       opt1: "r3"
     },
     {
@@ -71,7 +71,7 @@
     {
       id: "q9",
       text: "Oh, like the HBO show!",
-      type: 3,
+      type: 2,
       opt1: "r7"
     },
     {
@@ -84,13 +84,13 @@
     {
       id: "q11",
       text: "Gross, get out.",
-      type: 4,
+      type: 3,
       opt1: "v3"
     },
     {
       id: "q12",
       text: "Exactly.",
-      type: 4,
+      type: 3,
       opt1: "v3"
     },
     {
@@ -117,13 +117,13 @@
     {
       id: "q16",
       text: "Score! Stay till you get a hoodie (or a tesla).",
-      type: 4,
+      type: 3,
       opt1: "v7"
     },
     {
       id: "q17",
       text: "But what are you supposed to wear tomorrow?",
-      type: 4,
+      type: 3,
       opt1: "v3"
     }
   ],
